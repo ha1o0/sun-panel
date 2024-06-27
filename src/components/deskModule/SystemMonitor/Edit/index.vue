@@ -135,6 +135,9 @@ async function handleSubmit() {
       <NTabPane :name="MonitorType.disk" :tab="$t('deskModule.systemMonitor.diskState')">
         <DiskEditor ref="DiskEditorRef" v-model:disk-extend-param="currentDiskExtendParam" />
       </NTabPane>
+      <NTabPane :name="MonitorType.diskRunning" :tab="$t('deskModule.systemMonitor.diskRunning')">
+        <DiskEditor ref="DiskEditorRef" v-model:disk-extend-param="currentDiskExtendParam" />
+      </NTabPane>
     </NTabs>
     <NButton @click="handleResetExtendParam">
       {{ t('common.reset') }}

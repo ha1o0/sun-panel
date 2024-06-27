@@ -206,6 +206,7 @@
       "cpuState": "CPU status",
       "diskMountPoint": "Mount point",
       "diskState": "Disk status",
+      "diskRunning": "Disk is running",
       "memoryState": "Memory status",
       "progressColor": "Main color",
       "progressRailColor": "Secondary color",

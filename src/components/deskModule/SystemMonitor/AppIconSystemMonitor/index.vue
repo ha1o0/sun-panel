@@ -6,6 +6,7 @@ import GenericMonitorCard from '../components/GenericMonitorCard/index.vue'
 import CardCPU from './CPU.vue'
 import Memory from './Memory.vue'
 import Disk from './Disk.vue'
+import DiskRunning from './DiskRunning.vue'
 import { SvgIcon } from '@/components/common'
 import { PanelPanelConfigStyleEnum } from '@/enums'
 
@@ -28,6 +29,8 @@ const iconText = computed(() => {
       return props.extendParam.path
     case MonitorType.memory:
       return 'RAM'
+    case MonitorType.diskRunning:
+      return props.extendParam.path
   }
   return ''
 })
@@ -84,6 +87,15 @@ const refreshInterval = 5000
             :path="extendParam?.path"
             :refresh-interval="refreshInterval"
           />
+          <DiskRunning
+            v-else-if="monitorType === MonitorType.diskRunning"
+            :card-type-style="PanelPanelConfigStyleEnum.info"
+            :progress-color="extendParam?.progressColor"
+            :progress-rail-color="extendParam?.progressRailColor"
+            :text-color="extendParam?.color"
+            :path="extendParam?.path"
+            :refresh-interval="refreshInterval"
+          />
         </div>
       </template>
       <template #small>
@@ -105,6 +117,15 @@ const refreshInterval = 5000
         />
         <Disk
           v-else-if="monitorType === MonitorType.disk"
+          :card-type-style="PanelPanelConfigStyleEnum.icon"
+          :progress-color="extendParam?.progressColor"
+          :progress-rail-color="extendParam?.progressRailColor"
+          :text-color="extendParam?.color"
+          :path="extendParam?.path"
+          :refresh-interval="refreshInterval"
+        />
+        <DiskRunning
+          v-else-if="monitorType === MonitorType.diskRunning"
           :card-type-style="PanelPanelConfigStyleEnum.icon"
           :progress-color="extendParam?.progressColor"
           :progress-rail-color="extendParam?.progressRailColor"

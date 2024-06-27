@@ -205,7 +205,8 @@
     "systemMonitor": {
       "cpuState": "CPU状态",
       "diskMountPoint": "挂载点",
-      "diskState": "磁盘状态",
+      "diskState": "磁盘使用情况",
+      "diskRunning": "磁盘是否运行中",
       "memoryState": "内存状态",
       "progressColor": "主色",
       "progressRailColor": "副色",
